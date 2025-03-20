@@ -30,16 +30,6 @@
 | Autor  | Nicolás Expósito Hernández |
 |Fecha | 19/03/2025 |
 
-   #### Sistema de notificaciones
-
-|  Actor | Sistema de notificaciones|
-|---|---|
-| Descripción  | Se encarga de enviar notificaciones a los usuario. ||
-| Relaciones | |
-| Referencias | Enviar solucion, validar cuenta, validar comentario, notificar compra |   
-|  Notas ||
-| Autor  | Nicolás Expósito Hernández |
-|Fecha | 19/03/2025 |
 
 ## Casos de usos
 
