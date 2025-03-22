@@ -10,10 +10,22 @@
 
 |  Actor | Usuario General|
 |---|---|
-| Descripción  | Persona interesada en comprar un juego. |
+| Descripción  | Persona interesada en comprar o buscar un juego. |
 | Características  ||
 | Relaciones |  |
-| Referencias | Registrarse, buscar juegos, poner comentarios, gestionar perfil, solicitar soporte, comprar juego.|   
+| Referencias | Registrarse, buscar juegos, poner comentarios|   
+|  Notas ||
+| Autor  | Nicolás Expósito Hernández |
+|Fecha | 19/03/2025 |
+
+   #### Usuario Resgistrado
+
+|  Actor | Usuario General|
+|---|---|
+| Descripción  | Persona interesada en comprar o buscar un juego. |
+| Características  ||
+| Relaciones | Registrarse, buscar juegos, poner comentarios |
+| Referencias | Iniciar sesion, comprar juegos.|   
 |  Notas ||
 | Autor  | Nicolás Expósito Hernández |
 |Fecha | 19/03/2025 |
@@ -24,8 +36,8 @@
 |---|---|
 | Descripción  | Persona encargada de actualiza, agregar y eliminar juegos de la tienda. |
 | Características  ||
-| Relaciones | Registrarse, buscar juegos, poner comentarios, gestionar perfil, solicitar soporte, comprar juego. |
-| Referencias | Gestionar contenido, gestionar el soporte técnico, mantenimiento, gestionar publicidad, verificar registro.|   
+| Relaciones | Registrarse, buscar juegos, poner comentarios, iniciar sesion, comprar juego. |
+| Referencias | Gestionar contenido, gestionar publicidad.|   
 |  Notas ||
 | Autor  | Nicolás Expósito Hernández |
 |Fecha | 19/03/2025 |
@@ -33,14 +45,14 @@
 
 ## Casos de usos
 
-### Autor
+### Usuario General
 
 #### Registrarse
 
 |  Caso de Uso	CU.1 | Registrarse |
   |---|---|
   | Fuentes  | Este caso de uso se sustenta gracias al [documeto](). |
-  | Actor  |  Usuario general, Administrador |
+  | Actor  |  Usuario general,usuario registrado, Administrador |
   | Descripción | Registrarse en la tienda  |
   | Flujo básico ||
   | Pre-condiciones | |  
@@ -55,7 +67,7 @@
 |  Caso de Uso	CU.2 | Buscar juegos |
   |---|---|
   | Fuentes  | Este caso de uso se sustenta gracias al [documeto](). |
-  | Actor  |  Usuario general, Administrador |
+  | Actor  |  Usuario general,Usuario registrado, Administrador |
   | Descripción | Buscar juegos en la app |
   | Flujo básico ||
   | Pre-condiciones | |  
@@ -70,7 +82,7 @@
 |  Caso de Uso	CU.3 | Poner comentarios |
   |---|---|
   | Fuentes  | Este caso de uso se sustenta gracias al [documeto](). |
-  | Actor  |  Usuario general, Administrador |
+  | Actor  |  Usuario general, Usuario registrado, Administrador |
   | Descripción | Ingresar comentarios en los juegos |
   | Flujo básico ||
   | Pre-condiciones | |  
@@ -80,28 +92,15 @@
   | Autor  | nexphernandez |
   |Fecha | 19/03/2025|
 
+### Usuario Registrado
+
 #### Gestionar perfil
 
-|  Caso de Uso	CU.4 | Gestionar el perfil |
+|  Caso de Uso	CU.1 | Iniciar sesion |
   |---|---|
   | Fuentes  | Este caso de uso se sustenta gracias al [documeto](). |
-  | Actor  |  Usuario general, Administrador |
+  | Actor  |  Usuario registrado, Administrador |
   | Descripción | El usuario puede modificar su perfil |
-  | Flujo básico ||
-  | Pre-condiciones | |  
-  | Post-condiciones  | |  
-  |  Requerimientos | Tener cuenta |
-  |  Notas |  |
-  | Autor  | nexphernandez |
-  |Fecha | 19/03/2025|
-
-#### Solicitar soporte
-
-|  Caso de Uso	CU.5 | Solicitar soporte |
-  |---|---|
-  | Fuentes  | Este caso de uso se sustenta gracias al [documeto](). |
-  | Actor  |  Usuario general, Administrador |
-  | Descripción | Pedir ayuda al soporte tecnico |
   | Flujo básico ||
   | Pre-condiciones | |  
   | Post-condiciones  | |  
@@ -112,10 +111,10 @@
 
 #### Comprar juegos
 
-|  Caso de Uso	CU.6 | Comprar juegos |
+|  Caso de Uso	CU.2 | Comprar juegos |
   |---|---|
   | Fuentes  | Este caso de uso se sustenta gracias al [documeto](). |
-  | Actor  |  Usuario general, Administrador |
+  | Actor  |  Usuario registrado, Administrador |
   | Descripción | Comprar un juego de la alicación |
   | Flujo básico ||
   | Pre-condiciones | |  
@@ -142,21 +141,6 @@
   | Autor  | nexphernandez |
   |Fecha | 19/03/2025|
 
-#### Gestionar soporte tecnico
-
-|  Caso de Uso	CU.2 | Mantenimiento |
-  |---|---|
-  | Fuentes  | Este caso de uso se sustenta gracias al [documeto](). |
-  | Actor  | Administrador |
-  | Descripción | Se encarga de que la aplicacion no tenga ningun problema|
-  | Flujo básico ||
-  | Pre-condiciones | |  
-  | Post-condiciones  | |  
-  |  Requerimientos | Tener cuenta |
-  |  Notas |  |
-  | Autor  | nexphernandez |
-  |Fecha | 19/03/2025|
-
 #### Gestionar publicidad
 
 |  Caso de Uso	CU.3 | Gestionar publicidad |
@@ -167,78 +151,6 @@
   | Pre-condiciones | |  
   | Post-condiciones  | |  
   |  Requerimientos | Tener cuenta |
-  |  Notas |  |
-  | Autor  | nexphernandez |
-  |Fecha | 19/03/2025|
-
-#### Verificar registro
-
-|  Caso de Uso	CU.4 | Verificar registro |
-  |---|---|
-  | Fuentes  | Este caso de uso se sustenta gracias al [documeto](). |
-  | Actor  | Administrador |
-  | Descripción | Se encarga de verificar que no hayan dos ususarios iguales ||
-  | Pre-condiciones | |  
-  | Post-condiciones  | |  
-  |  Requerimientos | Tener cuenta |
-  |  Notas |  |
-  | Autor  | nexphernandez |
-  |Fecha | 19/03/2025|
-
-## Sistema de notificaciones
-
-#### Validar cuenta
-
-|  Caso de Uso	CU.1 | Validar cuenta |
-  |---|---|
-  | Fuentes  | Este caso de uso se sustenta gracias al [documeto](). |
-  | Actor  | Sistema de notificaciones |
-  | Descripción | Se encarga de verificar que la cueta se haya creado correctamente ||
-  | Pre-condiciones | |  
-  | Post-condiciones  | |  
-  |  Requerimientos | |
-  |  Notas |  |
-  | Autor  | nexphernandez |
-  |Fecha | 19/03/2025|
-
-#### Notificar compra
-
-|  Caso de Uso	CU.2 | Notificar compra |
-  |---|---|
-  | Fuentes  | Este caso de uso se sustenta gracias al [documeto](). |
-  | Actor  | Sistema de notificaciones |
-  | Descripción | Se encarga de notificar al usuaruio si la compra se ha realizado correctamente ||
-  | Pre-condiciones | |  
-  | Post-condiciones  | |  
-  |  Requerimientos | |
-  |  Notas |  |
-  | Autor  | nexphernandez |
-  |Fecha | 19/03/2025|
-
-#### Enviar solicitud
-
-|  Caso de Uso	CU.3 | Recibir solicitud |
-  |---|---|
-  | Fuentes  | Este caso de uso se sustenta gracias al [documeto](). |
-  | Actor  | Sistema de notificaciones |
-  | Descripción | Se encarga de recibir la solicitud de soporte ||
-  | Pre-condiciones | |  
-  | Post-condiciones  | |  
-  |  Requerimientos | |
-  |  Notas |  |
-  | Autor  | nexphernandez |
-  |Fecha | 19/03/2025|
-
-#### Validar comentario
-
-|  Caso de Uso	CU.1 | Validar comentario |
-  |---|---|
-  | Fuentes  | Este caso de uso se sustenta gracias al [documeto](). |
-  | Actor  | Sistema de notificaciones |
-  | Descripción | Se encarga de verificar que los comentarios no incluyan faltas de respeto ||
-  | Pre-condiciones | |  
-  | Post-condiciones  | |  
-  |  Requerimientos | |
   |  Notas |  |
   | Autor  | nexphernandez |
   |Fecha | 19/03/2025|
