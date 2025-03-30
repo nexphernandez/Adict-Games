@@ -1,0 +1,49 @@
+VBox {
+    -fx-background-color: linear-gradient(to bottom right, #ff0080, #8000ff);
+    -fx-padding: 20;
+    -fx-spacing: 10;
+}
+
+.top-bar {
+    -fx-alignment: top-right;
+    -fx-spacing: 150;
+}
+
+.menu-button {
+    -fx-background-color: #e0e0e0;
+    -fx-text-fill: black;
+    -fx-font-size: 14px;
+    -fx-padding: 5 10;
+    -fx-border-radius: 5px;
+}
+
+.login-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.search-bar {
+    -fx-pref-width: 300;
+    -fx-padding: 5;
+    -fx-background-radius: 5px;
+}
+
+.game-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.new-user-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: white;
+}
+
+.register-button {
+    -fx-background-color: #0099ff;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 5 20;
+    -fx-border-radius: 5px;
+}
