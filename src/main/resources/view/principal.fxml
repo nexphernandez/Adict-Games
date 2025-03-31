@@ -5,6 +5,7 @@
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
@@ -18,13 +19,15 @@
      </items>
    </MenuButton>
     
-    <TextField fx:id="searchTextField" promptText="🔍 Search" stylesheets="@../css/estilo.css" translateY="-45.0" />
+    <TextField fx:id="searchTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="303.0" promptText="🔍 Search" stylesheets="@../css/estilo.css" translateY="-45.0" />
    <Line endX="100.0" startX="-197.3358612060547" startY="-1.6568543910980225" stroke="WHITE" strokeLineCap="ROUND" strokeWidth="5.0" translateY="-45.0" />
     
     <Label fx:id="juegoLabel" styleClass="game-title" text="Elden Ring" translateX="-100.0" translateY="-35.0" />
-    <ImageView fitHeight="146.0" fitWidth="290.0" translateY="-40.0" fx:id="imagenJuego" >
-            <Image fx:src="@/images/elden-ring.jpg" />
-    </ImageView>
+   <ImageView fitHeight="150.0" fitWidth="291.0" pickOnBounds="true" preserveRatio="true" translateY="-35.0">
+      <image>
+         <Image url="@../images/elden-ring.png" />
+      </image>
+   </ImageView>
    <Line endX="100.0" startX="-197.3358612060547" startY="-1.6568543910980225" stroke="WHITE" strokeLineCap="ROUND" strokeWidth="5.0" />
     
     <Label fx:id="nuevoUsuarioLabel" styleClass="new-user-label" text="Nuevo Usuario:" />
