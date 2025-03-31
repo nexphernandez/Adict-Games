@@ -16,9 +16,6 @@ import javafx.scene.image.Image;
 public class AbstractController {
 
     @FXML
-    public Image imagenJuego ;
-
-    @FXML
     public Label iniciarSesionLabel;
 
     @FXML

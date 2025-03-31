@@ -12,7 +12,7 @@
 
 <VBox alignment="CENTER" depthTest="ENABLE" spacing="10" stylesheets="@../css/estilo.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="backend.es.nexphernandez.adict.games.controller.PrincipalController">
    <Label fx:id="iniciarSesionLabel" styleClass="new-user-label" text="Iniciar Sesion" textAlignment="RIGHT" translateX="100.0" />
-   <MenuButton fx:id="menuButton" mnemonicParsing="false" text="MenuButton" translateX="-55.0" translateY="-40.0">
+   <MenuButton fx:id="menuButton" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" popupSide="RIGHT" prefHeight="38.0" prefWidth="152.0" text="Menu" translateX="-55.0" translateY="-40.0">
      <items>
        <MenuItem mnemonicParsing="false" text="Action 1" />
        <MenuItem mnemonicParsing="false" text="Action 2" />
