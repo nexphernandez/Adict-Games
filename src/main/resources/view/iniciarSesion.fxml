@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+
+<VBox alignment="CENTER" depthTest="ENABLE" prefHeight="448.0" prefWidth="343.2" spacing="10" stylesheets="@../css/estilo.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="backend.es.nexphernandez.adict.games.controller.IniciarSesionController">
+   <Label fx:id="iniciarSesionLabel" styleClass="new-user-label" text="Iniciar Sesion" textAlignment="RIGHT" />
+   <Line endX="100.0" startX="-197.3358612060547" startY="-1.6568543910980225" stroke="WHITE" strokeLineCap="ROUND" strokeWidth="5.0" />
+   <ImageView fx:id="imagen" fitHeight="69.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../images/avatar.jpg" />
+      </image>
+   </ImageView>
+   <Label fx:id="nombreUsuarioLabel" styleClass="new-user-label" text="Nombre de Usuario" textAlignment="RIGHT" />
+   <TextField fx:id="textFielfUsuario" promptText="Inserte usario" />
+   <Label fx:id="contraseniaLabel" styleClass="new-user-label" text="Contraseña" textAlignment="RIGHT" />
+   <PasswordField fx:id="passwoerfield" text="********" />
+    <Button fx:id="entrarButton" styleClass="register-button" text="Entrar" />
+   <Label fx:id="olvidarContraseniaLabel" styleClass="new-user-label" text="¿Olvidó la contraseña?" />
+   <Line endX="100.0" startX="-197.3358612060547" startY="1.6568450927734375" stroke="WHITE" strokeLineCap="ROUND" strokeWidth="5.0" />
+    
+    <Label fx:id="nuevoUsuarioLabel" styleClass="new-user-label" text="Nuevo Usuario:" />
+   <Button fx:id="registrarButton" styleClass="register-button" text="Registrar" />
+    
+</VBox>
