@@ -2,25 +2,20 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 
 <VBox alignment="CENTER" depthTest="ENABLE" prefHeight="448.0" prefWidth="343.2" spacing="10" stylesheets="@../css/estilo.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="backend.es.nexphernandez.adict.games.controller.ComprarController">
-   <Label fx:id="iniciarSesionLabel" styleClass="new-user-label" text="Registro" textAlignment="RIGHT" />
+   <Label fx:id="iniciarSesionLabel" styleClass="new-user-label" text="Comprar" textAlignment="RIGHT" />
    <Line endX="100.0" startX="-197.3358612060547" startY="-1.6568543910980225" stroke="WHITE" strokeLineCap="ROUND" strokeWidth="5.0" />
-   <Label fx:id="nombreUsuarioLabel" styleClass="new-user-label" text="Nombre de Usuario" textAlignment="RIGHT" />
-   <TextField fx:id="textFielfUsuario" promptText="Inserte usario" />
-   <Label fx:id="contraseniaLabel" styleClass="new-user-label" text="Contraseña" textAlignment="RIGHT" />
-   <PasswordField fx:id="passwoerfield" text="********" />
-   <Label fx:id="contraseniaLabel1" styleClass="new-user-label" text="Repertir contraseña" textAlignment="RIGHT" />
-   <PasswordField fx:id="passwoerfield1" text="********" />
+   <Label fx:id="nombreUsuarioLabel" styleClass="new-user-label" text="Número de cuenta bancaria" textAlignment="RIGHT" />
+   <TextField fx:id="textFielfUsuario" promptText="Inserte número" />
+   <Label fx:id="contraseniaLabel" styleClass="new-user-label" text="Nombre" textAlignment="RIGHT" />
+   <TextField fx:id="textFielfUsuario11" promptText="Inserte nombre" />
    <Label fx:id="olvidarContraseniaLabel" styleClass="new-user-label" text="Email" />
    <TextField fx:id="textFielfUsuario1" promptText="Inserte email" />
-    
-    <Label fx:id="nuevoUsuarioLabel" styleClass="new-user-label" text="Repetir email" />
-   <TextField fx:id="textFielfUsuario11" promptText="Inserte email" />
     <Button fx:id="entrarButton" styleClass="register-button" text="Entrar" />
+   <Button fx:id="entrarButton1" styleClass="register-button" text="Volver" />
     
 </VBox>
