@@ -20,7 +20,7 @@
    <Label fx:id="nombreUsuarioLabel" styleClass="new-user-label" text="Nombre de Usuario" textAlignment="RIGHT" />
    <TextField fx:id="textFielfUsuario" promptText="Inserte usario" />
    <Label fx:id="contraseniaLabel" styleClass="new-user-label" text="Contraseña" textAlignment="RIGHT" />
-   <PasswordField fx:id="passwoerfield" text="********" />
+   <PasswordField fx:id="passwoerfield" prefHeight="26.0" prefWidth="248.0" text="********" />
     <Button fx:id="entrarButton" styleClass="register-button" text="Entrar" />
    <Label fx:id="olvidarContraseniaLabel" styleClass="new-user-label" text="¿Olvidó la contraseña?" />
    <Line endX="100.0" startX="-197.3358612060547" startY="1.6568450927734375" stroke="WHITE" strokeLineCap="ROUND" strokeWidth="5.0" />
