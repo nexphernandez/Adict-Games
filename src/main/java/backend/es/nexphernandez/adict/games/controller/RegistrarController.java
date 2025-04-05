@@ -6,13 +6,27 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
+/**
+ * @author nexphernandez
+ * @version 1.0.0
+ */
 public class RegistrarController extends AbstractController{
+    
+    /**
+     * Inicializate de la clase
+     */
+    public void initialize() {
+        cambiarIdiomaRegistro();
+    }
+
     @FXML
     protected void onRegistrarClick(){
         
     }
 
+    /**
+     * Funcion para ir la pagina iniciar sesion
+     */
     @FXML
     protected void onAtrasClick(){
         try {

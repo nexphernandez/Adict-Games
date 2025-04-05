@@ -6,8 +6,22 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
+/**
+ * @author nexphernandez
+ * @version 1.0.0
+ */
 public class PerfilController extends AbstractController{
+    
+    /**
+     * Inicializate de la clase
+     */
+    public void initialize() {
+        cambiarIdiomaPerfil();
+    }
+    
+    /**
+     * Funcion para ir la pagina buscar juego
+     */
     @FXML
     protected void onAtrasClick(){
         try {

@@ -1,22 +1,46 @@
+/* Fondo general del VBox (no se toca) */
 VBox {
     -fx-background-color: linear-gradient(to bottom right, #ff0080, #8000ff);
     -fx-padding: 20;
     -fx-spacing: 10;
 }
 
+/* Estilo de la barra superior */
 .top-bar {
     -fx-alignment: top-right;
     -fx-spacing: 150;
 }
 
+/* Botón del MenuBar (azul con texto blanco) */
 .menu-button {
-    -fx-background-color: #e0e0e0;
-    -fx-text-fill: black;
+    -fx-background-color: #0099ff;
+    -fx-text-fill: white;
     -fx-font-size: 14px;
     -fx-padding: 5 10;
-    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
 }
 
+/* Texto del MenuButton */
+.menu-button .label {
+    -fx-text-fill: white;
+}
+
+/* Hover del MenuButton */
+.menu-button:hover {
+    -fx-background-color: #007acc;
+}
+
+/* Menú desplegable (opcional) */
+.menu-item {
+    -fx-text-fill: black;
+    -fx-background-color: white;
+}
+
+.menu-item:hover {
+    -fx-background-color: #cce6ff;
+}
+
+/* Otros estilos ya definidos */
 .login-label {
     -fx-font-size: 14px;
     -fx-font-weight: bold;
@@ -46,4 +70,26 @@ VBox {
     -fx-font-size: 14px;
     -fx-padding: 5 20;
     -fx-border-radius: 5px;
+}
+
+/* Menú Bar (Transparente con borde invisible) */
+.menu-bar {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+/* Fondo azul del context-menu */
+.context-menu {
+    -fx-background-color: #0099ff; /* Fondo azul */
+}
+
+/* Estilo de los items del context-menu */
+.context-menu .menu-item {
+    -fx-text-fill: white; /* Texto blanco */
+    -fx-background-color: #0099ff; /* Fondo azul */
+}
+
+/* Estilo de hover de los menu-item */
+.context-menu .menu-item:hover {
+    -fx-background-color: #007acc; /* Azul más oscuro al pasar el ratón */
 }

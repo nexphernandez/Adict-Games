@@ -1,27 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 
 <VBox alignment="CENTER" depthTest="ENABLE" prefHeight="668.0" prefWidth="343.0" spacing="10" stylesheets="@../css/estilo.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="backend.es.nexphernandez.adict.games.controller.PrincipalController">
-   <Hyperlink fx:id="iniciarSesionLink" onAction="#OnClickIniciarSesion" styleClass="new-user-label" text="Iniciar Sesion" textAlignment="RIGHT" translateX="100.0"  />
-   <MenuButton fx:id="menuButton" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#onClickMenu" popupSide="RIGHT" prefHeight="38.0" prefWidth="152.0" text="Menu" translateX="-55.0" translateY="-40.0">
-     <items>
-       <MenuItem mnemonicParsing="false" text="Action 1" />
-       <MenuItem mnemonicParsing="false" text="Action 2" />
-     </items>
-   </MenuButton>
+   <HBox translateY="-50.0">
+      <children>
+         <MenuBar fx:id="barra" maxHeight="32.0" maxWidth="187.0" prefHeight="32.0" prefWidth="162.0">
+           <menus>
+             <Menu fx:id="idiomaMenu" mnemonicParsing="false" text="Idioma">
+               <items>
+                  <MenuItem fx:id="esMenuItem" mnemonicParsing="false" text="es" onAction="#seleccionarIdiomaEspañol"/>
+                  <MenuItem fx:id="enMenuItem" mnemonicParsing="false" text="en" onAction="#seleccionarIdiomaIngles"/>
+               </items>
+             </Menu>
+             <Menu mnemonicParsing="false" text="genero">
+               <items>
+                 <MenuItem fx:id="generoMenu" mnemonicParsing="false" text="Delete" />
+               </items>
+             </Menu>
+           </menus>
+            <HBox.margin>
+               <Insets right="-500.0" />
+            </HBox.margin>
+         </MenuBar>
+         <Hyperlink fx:id="iniciarSesionLink" onAction="#OnClickIniciarSesion" prefHeight="30.0" prefWidth="91.0" styleClass="new-user-label" text="Iniciar Sesion" textAlignment="RIGHT">
+            <HBox.margin>
+               <Insets left="525.0" />
+            </HBox.margin>
+         </Hyperlink>
+      </children>
+   </HBox>
     
     <TextField fx:id="searchTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#buscarJuegos" prefHeight="24.0" prefWidth="303.0" promptText="🔍 Search" stylesheets="@../css/estilo.css" translateY="-45.0" />
-   <Line endX="100.0" startX="-197.3358612060547" startY="-1.6568543910980225" stroke="WHITE" strokeLineCap="ROUND" strokeWidth="5.0" translateY="-45.0" />
+   <Line endX="91.3641357421875" endY="-3.256763458251953" startX="-197.3358612060547" startY="-1.6568543910980225" stroke="WHITE" strokeLineCap="ROUND" strokeWidth="5.0" translateY="-45.0" />
     
     <Label fx:id="juegoLabel" styleClass="game-title" text="Elden Ring" translateX="-100.0" translateY="-35.0" />
    <ImageView fx:id="imagenJuego" fitHeight="150.0" fitWidth="291.0" pickOnBounds="true" preserveRatio="true" translateY="-35.0">

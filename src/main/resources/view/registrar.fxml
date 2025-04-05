@@ -13,13 +13,15 @@
    <Label fx:id="nombreUsuarioLabel" styleClass="new-user-label" text="Nombre de Usuario" textAlignment="RIGHT" />
    <TextField fx:id="textFieldUsuario" promptText="Inserte usario" />
    <Label fx:id="contraseniaLabel" styleClass="new-user-label" text="Contraseña" textAlignment="RIGHT" />
-   <PasswordField fx:id="passwordField" text="********" />
+   <PasswordField fx:id="passwordField" promptText="inserte contraseña" />
    <Label fx:id="contraseniaLabel1" styleClass="new-user-label" text="Repertir contraseña" textAlignment="RIGHT" />
-   <PasswordField fx:id="passwordField1" text="********" />
+   <PasswordField fx:id="passwordField1" promptText="inserte contraseña" />
+   <Label fx:id="nombreLabel" styleClass="new-user-label" text="Nombre" />
+   <TextField fx:id="nombreField" promptText="Inserte nombre" />
    <Label fx:id="emailLabel" styleClass="new-user-label" text="Email" />
    <TextField fx:id="emailField" promptText="Inserte email" />
     <Label fx:id="repetirEmailLabel" styleClass="new-user-label" text="Repetir email" />
    <TextField fx:id="emailField1" promptText="Inserte email" />
     <Button fx:id="entrarButton" onAction="#onRegistrarClick" styleClass="register-button" text="Entrar" />
-    <Button mnemonicParsing="false" fx:id="atrasButton" onAction="#onAtrasClick" styleClass="register-button" text="Volver"   />
+    <Button fx:id="atrasButton" mnemonicParsing="false" onAction="#onAtrasClick" styleClass="register-button" text="Volver" />
 </VBox>

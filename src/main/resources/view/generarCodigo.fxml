@@ -11,15 +11,13 @@
 <?import javafx.scene.shape.Line?>
 
 <VBox alignment="CENTER" depthTest="ENABLE" prefHeight="668.0" prefWidth="343.0" spacing="10" stylesheets="@../css/estilo.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="backend.es.nexphernandez.adict.games.controller.GenerarCodigo">
-   <Label fx:id="iniciarSesionLabel" styleClass="new-user-label" text="Iniciar Sesion" textAlignment="RIGHT" translateX="100.0" />
+   <Label fx:id="generarCodigoLabel" styleClass="new-user-label" text="Iniciar Sesion" textAlignment="RIGHT" translateX="100.0" />
    <MenuButton fx:id="menuButton" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" popupSide="RIGHT" prefHeight="38.0" prefWidth="152.0" text="Menu" translateX="-55.0" translateY="-40.0">
      <items>
        <MenuItem mnemonicParsing="false" text="Action 1" />
        <MenuItem mnemonicParsing="false" text="Action 2" />
      </items>
    </MenuButton>
-    
-    <TextField fx:id="searchTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="303.0" promptText="🔍 Search" stylesheets="@../css/estilo.css" translateY="-45.0" />
    <Line endX="100.0" startX="-197.3358612060547" startY="-1.6568543910980225" stroke="WHITE" strokeLineCap="ROUND" strokeWidth="5.0" translateY="-45.0" />
     
     <Label fx:id="juegoLabel" styleClass="game-title" text="Elden Ring" translateX="-100.0" translateY="-35.0" />
@@ -29,9 +27,9 @@
       </image>
    </ImageView>
     
-    <Label fx:id="nuevoUsuarioLabel" styleClass="new-user-label" text="Codigo de comprar:" />
+    <Label fx:id="codigoLabel" styleClass="new-user-label" text="Codigo de comprar:" />
    <TextField text="d5fra/fsfa3da5er" />
    <Line endX="100.0" startX="-197.3358612060547" startY="-1.6568543910980225" stroke="WHITE" strokeLineCap="ROUND" strokeWidth="5.0" />
-    <Button fx:id="registrarButton" styleClass="register-button" text="Registrar" />
-   <Button mnemonicParsing="false" fx:id="inicioButton" onAction="#onAtrasClick" styleClass="register-button" text="Volver a inicio"   />
+    <Button mnemonicParsing="false" fx:id="atrasButton" onAction="#onAtrasClick" styleClass="register-button" text="Volver"   />
+   <Button fx:id="inicioButton" mnemonicParsing="false" onAction="#onVolverBuscarClick" styleClass="register-button" text="Volver a inicio" />
 </VBox>

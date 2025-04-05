@@ -31,7 +31,7 @@
       </image>
    </ImageView>
    <Hyperlink fx:id="comprarLabel" onAction="#oncomprarClick" styleClass="new-user-label" text="Comprar:" textAlignment="RIGHT" />
-   <Label fx:id="iniciarSesionLabel1" styleClass="new-user-label" text="Requerimientos" textAlignment="RIGHT" />
+   <Label fx:id="requerimientosLabel" styleClass="new-user-label" text="Requerimientos" textAlignment="RIGHT" />
    <TextArea fx:id="referencias" prefHeight="150.0" prefWidth="303.0" text="Sistema operativo: Windows 10.&#10;Procesador: Intel Core i5-8400 o AMD &#10;Ryzen 3 3300X.&#10;Tarjeta gráfica: NVIDIA GeForce 1060 de &#10;3 GB o AMD Radeon RX 580 de 4 GB.&#10;Memoria RAM: 12 GB.DirectX: 12.&#10;Almacenamiento: 60 GB.Tarjeta de &#10;sonido: que sea compatible con Windows." />
    <Line endX="100.0" startX="-197.3358612060547" startY="-1.6568543910980225" stroke="WHITE" strokeLineCap="ROUND" strokeWidth="5.0" />
    <Hyperlink fx:id="cerrarSesionLabel" onAction="#onCerrarSesionClick" styleClass="new-user-label" text="Cerrar sesión" textAlignment="RIGHT" />

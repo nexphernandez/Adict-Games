@@ -6,9 +6,22 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
+/**
+ * @author nexphernandez
+ * @version 1.0.0
+ */
 public class IniciarSesionController extends AbstractController{
     
+    /**
+     * Inicializate de la clase
+     */
+    public void initialize() {
+        cambiarIdiomaInicioSesion();
+    }
+
+    /**
+     * Funcion para ir la pagina registrar
+     */
     @FXML
     protected void onRegitrarClick(){
         try {
@@ -28,6 +41,9 @@ public class IniciarSesionController extends AbstractController{
         
     }
 
+    /**
+     * Funcion para ir la pagina buscar juego
+     */
     @FXML
     protected void onAceptarClick(){
         try {
@@ -42,6 +58,9 @@ public class IniciarSesionController extends AbstractController{
         }
     }
 
+    /**
+     * Funcion para ir la pagina principal
+     */
     @FXML
     protected void onAtrasClick(){
         try {

@@ -1,10 +1,7 @@
 package backend.es.nexphernandez.adict.games.controller;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import backend.es.nexphernandez.adict.games.PrincipalApplication;
-import backend.es.nexphernandez.adict.games.config.ConfigManager;
 import backend.es.nexphernandez.adict.games.controller.abstractas.AbstractController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,21 +14,18 @@ import javafx.stage.Stage;
  * @version 1.0.0
  */
 public class PrincipalController extends AbstractController {
-    private final String pathFichero = "src/main/resources/idiomas";
-    private final String ficheroStr = "idioma-";
 
+    /**
+     * Inicializate de la clase
+     */
     public void initialize() {
-        List<String> listaIdiomas = new ArrayList<>();
-        listaIdiomas.add("es");
-        listaIdiomas.add("en");
-        cargarIdioma("es");
+        cargarIdiomaActual();
+        cambiarIdiomaPrincipal();
     }
 
-    private void cargarIdioma(String idioma) {
-        String path = pathFichero + ficheroStr + idioma + ".properties";
-        ConfigManager.ConfigProperties.setPath(path);
-    }
-
+    /**
+     * Funcion para ir la pagina iniciar sesion
+     */
     @FXML
     protected void OnClickIniciarSesion() {
         try {
@@ -51,6 +45,9 @@ public class PrincipalController extends AbstractController {
 
     }
 
+    /**
+     * Funcion para ir la pagina registrar
+     */
     @FXML
     protected void onClickRegistrar() {
         try {

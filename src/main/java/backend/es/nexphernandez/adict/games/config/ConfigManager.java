@@ -11,7 +11,7 @@ import java.util.Properties;
 public class ConfigManager {
     public static class ConfigProperties {
     
-        static String path;
+        static String path ;
 
         private static final Properties properties = new Properties();
 

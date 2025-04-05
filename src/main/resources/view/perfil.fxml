@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Line?>
 
 <VBox alignment="CENTER" depthTest="ENABLE" prefHeight="668.0" prefWidth="343.0" spacing="10" stylesheets="@../css/estilo.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="backend.es.nexphernandez.adict.games.controller.PerfilController">
-   <Label fx:id="iniciarSesionLabel" styleClass="new-user-label" text="Gestionar perfil" textAlignment="RIGHT" />
+   <Label fx:id="perfilLabel" styleClass="new-user-label" text="Gestionar perfil" textAlignment="RIGHT" />
    <Line endX="100.0" startX="-197.3358612060547" startY="-1.6568543910980225" stroke="WHITE" strokeLineCap="ROUND" strokeWidth="5.0" />
    <ImageView fitHeight="69.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
       <image>
@@ -22,7 +22,7 @@
    <Label fx:id="contraseniaLabel" styleClass="new-user-label" text="Contraseña" textAlignment="RIGHT" />
    <PasswordField fx:id="passwoerfield" text="********" />
     
-    <Label fx:id="nuevoUsuarioLabel" styleClass="new-user-label" text="Nombre" />
+    <Label fx:id="nombreLabel" styleClass="new-user-label" text="Nombre" />
    <TextField fx:id="textFielfUsuario11" promptText="Inserte email" text="nicolas" />
    <Label fx:id="olvidarContraseniaLabel1" styleClass="new-user-label" text="Email" />
    <TextField fx:id="textFielfUsuario1" promptText="Inserte email" text="nicolas@gmail.com" />

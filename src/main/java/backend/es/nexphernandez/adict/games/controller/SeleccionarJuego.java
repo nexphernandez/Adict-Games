@@ -6,10 +6,22 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
+/**
+ * @author nexphernandez
+ * @version 1.0.0
+ */
 public class SeleccionarJuego extends AbstractController{
     
+    /**
+     * Inicializate de la clase
+     */
+    public void initialize() {
+        cambiarIdiomaSeleccionarJuego();
+    }
 
+    /**
+     * Funcion para ir la pagina principal
+     */
     @FXML
     protected void onCerrarSesionClick(){
         try {
@@ -24,6 +36,9 @@ public class SeleccionarJuego extends AbstractController{
         }
     }
 
+    /**
+     * Funcion para ir la pagina comprar
+     */
     @FXML
     protected void oncomprarClick(){
         try {
@@ -38,6 +53,9 @@ public class SeleccionarJuego extends AbstractController{
         }
     }
 
+    /**
+     * Funcion para ir la pagina perfil
+     */
     @FXML
     protected void onPerfilClick(){
         try {
@@ -52,6 +70,9 @@ public class SeleccionarJuego extends AbstractController{
         }
     }
 
+    /**
+     * Funcion para ir la pagina buscar juego
+     */
     @FXML
     protected void onAtrasClick(){
         try {
