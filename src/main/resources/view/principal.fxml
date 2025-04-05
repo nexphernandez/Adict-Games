@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
@@ -10,20 +11,20 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 
-<VBox alignment="CENTER" depthTest="ENABLE" spacing="10" stylesheets="@../css/estilo.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="backend.es.nexphernandez.adict.games.controller.PrincipalController">
-   <Label fx:id="iniciarSesionLabel" styleClass="new-user-label" text="Iniciar Sesion" textAlignment="RIGHT" translateX="100.0" />
-   <MenuButton fx:id="menuButton" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" popupSide="RIGHT" prefHeight="38.0" prefWidth="152.0" text="Menu" translateX="-55.0" translateY="-40.0">
+<VBox alignment="CENTER" depthTest="ENABLE" prefHeight="668.0" prefWidth="343.0" spacing="10" stylesheets="@../css/estilo.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="backend.es.nexphernandez.adict.games.controller.PrincipalController">
+   <Hyperlink fx:id="iniciarSesionLink" onAction="#OnClickIniciarSesion" styleClass="new-user-label" text="Iniciar Sesion" textAlignment="RIGHT" translateX="100.0"  />
+   <MenuButton fx:id="menuButton" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#onClickMenu" popupSide="RIGHT" prefHeight="38.0" prefWidth="152.0" text="Menu" translateX="-55.0" translateY="-40.0">
      <items>
        <MenuItem mnemonicParsing="false" text="Action 1" />
        <MenuItem mnemonicParsing="false" text="Action 2" />
      </items>
    </MenuButton>
     
-    <TextField fx:id="searchTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="303.0" promptText="🔍 Search" stylesheets="@../css/estilo.css" translateY="-45.0" />
+    <TextField fx:id="searchTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#buscarJuegos" prefHeight="24.0" prefWidth="303.0" promptText="🔍 Search" stylesheets="@../css/estilo.css" translateY="-45.0" />
    <Line endX="100.0" startX="-197.3358612060547" startY="-1.6568543910980225" stroke="WHITE" strokeLineCap="ROUND" strokeWidth="5.0" translateY="-45.0" />
     
     <Label fx:id="juegoLabel" styleClass="game-title" text="Elden Ring" translateX="-100.0" translateY="-35.0" />
-   <ImageView fitHeight="150.0" fitWidth="291.0" pickOnBounds="true" preserveRatio="true" translateY="-35.0">
+   <ImageView fx:id="imagenJuego" fitHeight="150.0" fitWidth="291.0" pickOnBounds="true" preserveRatio="true" translateY="-35.0">
       <image>
          <Image url="@../images/elden-ring.png" />
       </image>
@@ -31,6 +32,6 @@
    <Line endX="100.0" startX="-197.3358612060547" startY="-1.6568543910980225" stroke="WHITE" strokeLineCap="ROUND" strokeWidth="5.0" />
     
     <Label fx:id="nuevoUsuarioLabel" styleClass="new-user-label" text="Nuevo Usuario:" />
-    <Button fx:id="registrarButton" styleClass="register-button" text="Registrar" />
+    <Button fx:id="registrarButton" onAction="#onClickRegistrar" styleClass="register-button" text="Registrar" />
     
 </VBox>

@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 
-<VBox alignment="CENTER" depthTest="ENABLE" spacing="10" stylesheets="@../css/estilo.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="backend.es.nexphernandez.adict.games.controller.GenerarCodigo">
+<VBox alignment="CENTER" depthTest="ENABLE" prefHeight="668.0" prefWidth="343.0" spacing="10" stylesheets="@../css/estilo.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="backend.es.nexphernandez.adict.games.controller.GenerarCodigo">
    <Label fx:id="iniciarSesionLabel" styleClass="new-user-label" text="Iniciar Sesion" textAlignment="RIGHT" translateX="100.0" />
    <MenuButton fx:id="menuButton" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" popupSide="RIGHT" prefHeight="38.0" prefWidth="152.0" text="Menu" translateX="-55.0" translateY="-40.0">
      <items>
@@ -33,5 +33,5 @@
    <TextField text="d5fra/fsfa3da5er" />
    <Line endX="100.0" startX="-197.3358612060547" startY="-1.6568543910980225" stroke="WHITE" strokeLineCap="ROUND" strokeWidth="5.0" />
     <Button fx:id="registrarButton" styleClass="register-button" text="Registrar" />
-    
+   <Button mnemonicParsing="false" fx:id="inicioButton" onAction="#onAtrasClick" styleClass="register-button" text="Volver a inicio"   />
 </VBox>

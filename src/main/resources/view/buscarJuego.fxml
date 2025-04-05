@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
@@ -9,8 +10,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 
-<VBox alignment="CENTER" depthTest="ENABLE" spacing="10" stylesheets="@../css/estilo.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="backend.es.nexphernandez.adict.games.controller.">
-   <Label fx:id="iniciarSesionLabel" styleClass="new-user-label" text="nexphernandez" textAlignment="RIGHT" translateX="100.0" />
+<VBox alignment="CENTER" depthTest="ENABLE" prefHeight="668.0" prefWidth="343.0" spacing="10" stylesheets="@../css/estilo.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="backend.es.nexphernandez.adict.games.controller.BuscarJuegoController">
+   <Hyperlink fx:id="perfilLHyperlink" onAction="#onPerfilClick" styleClass="new-user-label" text="nexphernandez" textAlignment="RIGHT" translateX="100.0" />
    <MenuButton fx:id="menuButton" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" popupSide="RIGHT" prefHeight="38.0" prefWidth="152.0" text="Menu" translateX="-55.0" translateY="-40.0">
      <items>
        <MenuItem mnemonicParsing="false" text="Action 1" />
@@ -21,22 +22,20 @@
     <TextField fx:id="searchTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="303.0" promptText="🔍 Search" stylesheets="@../css/estilo.css" translateY="-45.0" />
    <Line endX="100.0" startX="-197.3358612060547" startY="-1.6568543910980225" stroke="WHITE" strokeLineCap="ROUND" strokeWidth="5.0" translateY="-45.0" />
     
-    <Label fx:id="juegoLabel" styleClass="game-title" text="Elden Ring" translateX="-100.0" translateY="-35.0" />
-   <ImageView fitHeight="150.0" fitWidth="291.0" pickOnBounds="true" preserveRatio="true" translateY="-35.0">
+    <Label fx:id="nombreJuegoLabel1" styleClass="game-title" text="Elden Ring" translateX="-100.0" translateY="-35.0" />
+   <ImageView fx:id="imagenJuego1" fitHeight="150.0" fitWidth="291.0" pickOnBounds="true" preserveRatio="true" translateY="-35.0">
       <image>
          <Image url="@../images/elden-ring.png" />
       </image>
    </ImageView>
-   <Label fx:id="nuevoUsuarioLabel1" styleClass="new-user-label" text="Comprar:" translateY="-35.0" />
-   <Label fx:id="juegoLabel1" styleClass="game-title" text="Assassin's creed valhalla" translateY="-35.0" />
-   <ImageView fitHeight="150.0" fitWidth="291.0" pickOnBounds="true" preserveRatio="true" translateY="-35.0">
+   <Hyperlink fx:id="seleccionarLabel1" onAction="#onSeleccionarClick" styleClass="new-user-label" text="Seleccionar:" translateY="-35.0" />
+   <Label fx:id="nombreJuegoLabel2" styleClass="game-title" text="Assassin's creed valhalla" translateX="-50.0" translateY="-35.0" />
+   <ImageView fx:id="imagenJuego2" fitHeight="150.0" fitWidth="291.0" pickOnBounds="true" preserveRatio="true" translateY="-35.0">
       <image>
          <Image url="@../images/assassin-s-creed-valhalla.jpg" />
       </image>
    </ImageView>
-   <Label fx:id="nuevoUsuarioLabel11" styleClass="new-user-label" text="Comprar:" translateY="-35.0" />
+   <Hyperlink fx:id="seleccionarLabel2" onAction="#onSeleccionarClick" styleClass="new-user-label" text="Seleccionar:" translateY="-35.0" />
    <Line endX="100.0" startX="-197.3358612060547" startY="-1.6568543910980225" stroke="WHITE" strokeLineCap="ROUND" strokeWidth="5.0" translateY="-20.0" />
-    
-    <Label fx:id="nuevoUsuarioLabel" styleClass="new-user-label" text="Cerrar sesion" translateY="-10.0" />
-    
+   <Hyperlink fx:id="cerrarSesionLabel" onAction="#onCerrarSesionClick" styleClass="new-user-label" text="Cerrar sesion" translateY="-10.0" />
 </VBox>

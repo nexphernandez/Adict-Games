@@ -4,7 +4,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.Properties;
-
+/**
+ * @author nexphernandez
+ * @version 1.0.0
+ */
 public class ConfigManager {
     public static class ConfigProperties {
     
@@ -14,11 +17,17 @@ public class ConfigManager {
 
         /**
          * Metodo estatico para obtener una propiedad
+         * @param key palabra clave de la propiedad
+         * @return la propiedad
          */
         public static String getProperty(String key){
             return properties.getProperty(key);
         }
 
+        /**
+         * funcion para obtener el path
+         * @param rutaPath ruta del path a verificar
+         */
         public static void setPath(String rutaPath){
             File file = new File(rutaPath);
             if (!file.exists() || !file.isFile()) {

@@ -7,8 +7,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class BuscarJuegoController extends AbstractController{
-   
+public class SeleccionarJuego extends AbstractController{
+    
+
     @FXML
     protected void onCerrarSesionClick(){
         try {
@@ -24,12 +25,12 @@ public class BuscarJuegoController extends AbstractController{
     }
 
     @FXML
-    protected void onSeleccionarClick(){
+    protected void oncomprarClick(){
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("/view/seleccionarJuego.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("/view/comprar.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
-            Stage stage = (Stage) seleccionarLabel1.getScene().getWindow();
-            stage.setTitle("Pantalla de seleccion");
+            Stage stage = (Stage) comprarLabel.getScene().getWindow();
+            stage.setTitle("Pantalla para comprar");
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {
@@ -44,6 +45,20 @@ public class BuscarJuegoController extends AbstractController{
             Scene scene = new Scene(fxmlLoader.load());
             Stage stage = (Stage) perfilLHyperlink.getScene().getWindow();
             stage.setTitle("Pantalla del perfil");
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    protected void onAtrasClick(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("/view/buscarJuego.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage stage = (Stage) atrasButton.getScene().getWindow();
+            stage.setTitle("Pantalla de Busqueda");
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {
