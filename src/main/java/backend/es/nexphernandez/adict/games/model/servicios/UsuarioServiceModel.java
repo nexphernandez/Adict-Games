@@ -2,6 +2,7 @@ package backend.es.nexphernandez.adict.games.model.servicios;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashSet;
 
@@ -86,8 +87,7 @@ public class UsuarioServiceModel extends Conexion{
             return false;
         }
         String sql = "INSERT INTO usuarios (user, email, nombre, contrasenia) Values (?,?,?,?)";
-        actualizarDatosUsuario(sql, usuario);
-        return true;
+        return actualizarDatosUsuario(sql, usuario);
     }
 
     /**
@@ -126,6 +126,23 @@ public class UsuarioServiceModel extends Conexion{
     public HashSet<UsuarioEntity> obtenerTodosLosUsuarios(){
         String sql = "SELECT * FROM usuarios";
         return leerSentenciaUser(sql);
+    }
+
+    /**
+     * Metodo para borrar un usuario
+     * @param user usuario a borrar
+     * @return true/false
+     */
+    public boolean borrarUsuario(UsuarioEntity user){
+        String sql = "DELETE FROM usuarios where user ='"+ user + "'";
+        try {
+            PreparedStatement sentencia = conectar().prepareStatement(sql);
+            sentencia.execute();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }
 
