@@ -1,5 +1,7 @@
 package backend.es.nexphernandez.adict.games.model.servicios;
 
-public class JuegoServiceModel {
+import backend.es.nexphernandez.adict.games.model.abstractas.Conexion;
+
+public class JuegoServiceModel extends Conexion{
     
 }

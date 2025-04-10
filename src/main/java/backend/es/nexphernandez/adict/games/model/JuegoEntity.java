@@ -84,12 +84,10 @@ public class JuegoEntity {
 
     @Override
     public String toString() {
-        return "{" +
-            " nombre='" + getNombre() + "'" +
-            ", urlImangen='" + getUrlImangen() + "'" +
-            ", codigo='" + getCodigo() + "'" +
-            ", generos='" + getGeneros() + "'" +
-            "}";
+        return  getNombre() + "," +
+             getUrlImangen() + "," +
+             getCodigo() + "," +
+             getGeneros();
     }
     
     

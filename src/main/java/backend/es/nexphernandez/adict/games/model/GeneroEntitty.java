@@ -48,9 +48,7 @@ public class GeneroEntitty {
 
     @Override
     public String toString() {
-        return "{" +
-            " genero='" + getGenero() + "'" +
-            "}";
+        return getGenero();
     }
     
 }

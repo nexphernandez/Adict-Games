@@ -45,6 +45,7 @@ public class UsuarioEntity {
      * @param email del usuario
      * @param nombre del usuario
      * @param contrasenia del usuario
+     * @param rol del usuario
      */
     public UsuarioEntity(String user, String email,String nombre,String contrasenia, String rol){
         this.user = user;
