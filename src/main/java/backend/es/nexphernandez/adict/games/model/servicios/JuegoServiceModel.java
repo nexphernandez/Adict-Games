@@ -5,13 +5,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 
-import backend.es.nexphernandez.adict.games.model.GeneroEntitty;
+import backend.es.nexphernandez.adict.games.model.GeneroEntity;
 import backend.es.nexphernandez.adict.games.model.JuegoEntity;
-import backend.es.nexphernandez.adict.games.model.UsuarioEntity;
 import backend.es.nexphernandez.adict.games.model.abstractas.Conexion;
-
+/**
+ * @author nexphernandez
+ * @version 1.0.0
+ */
 public class JuegoServiceModel extends Conexion{
     GeneroServiceModel generoServiceModel;
     /**
@@ -45,13 +46,13 @@ public class JuegoServiceModel extends Conexion{
                 String nombreStr = resultado.getString("nombre");
                 String urlImangenStr = resultado.getString("urlImangen");
                 String codigoStr = resultado.getString("codigo");
-                String sqlgenero = "Select * from generos as g " +
+                String sqlgenero = "Select nombre from generos as g " +
                                     "inner join juego_genero as jg " +
                                     "on g.id = jg.juego_id " + 
                                     "inner join juegos as j " + 
                                     "on jp.genero_id = j.id" + 
                                     " Where j.id = " + idJuego;
-                HashSet<GeneroEntitty> generosArr = generoServiceModel.leerSentenciaGenero(sqlgenero);
+                HashSet<GeneroEntity> generosArr = generoServiceModel.leerSentenciaGenero(sqlgenero);
                 JuegoEntity juego = new JuegoEntity(nombreStr, urlImangenStr, codigoStr, generosArr);
                 juegos.add(juego);
             }
@@ -61,9 +62,7 @@ public class JuegoServiceModel extends Conexion{
             cerrar();
         }
         return juegos;
-    }
-
-    
+    }    
 
     /**
      * Funcion que actualiza los datos segun la secuencia introducida en la tabla juego
@@ -77,14 +76,14 @@ public class JuegoServiceModel extends Conexion{
             sentencia.setString(1, juego.getNombre());
             sentencia.setString(2, juego.getUrlImangen());
             sentencia.setString(3, juego.getCodigo());
-            HashSet<GeneroEntitty> generos = juego.getGeneros();
-            String sqlGenero = "Update * from generos as g " +
+            HashSet<GeneroEntity> generos = juego.getGeneros();
+            String sqlGenero = "Update nombre from generos as g " +
                                     "inner join juego_genero as jg " +
                                     "on g.id = jg.juego_id " + 
                                     "inner join juegos as j " + 
                                     "on jp.genero_id = j.id" + 
                                     " Where j.codigo = " + juego.getCodigo();
-            for (GeneroEntitty generoBuscado : generos) {
+            for (GeneroEntity generoBuscado : generos) {
                 generoServiceModel.actualizarDatosGenero(sqlGenero, generoBuscado);
             }
             sentencia.setString(4, juego.getNombre());
@@ -126,43 +125,13 @@ public class JuegoServiceModel extends Conexion{
         return juegos.get(0);
     }
 
-
-
-
-
-
-    /* de aqui para adelante
-
     /**
-     * Metodo para obtener los datos de un usuario por el email
-     * @param email email del usuario buscado
-     * @return usuario buscado
-     */
-    public UsuarioEntity obtenerUsuariosPorEmail(String email){
-        String sql = "SELECT * FROM usuarios WHERE email = '" + email + "'";
-        ArrayList<UsuarioEntity> usuarios = new ArrayList<>(leerSentenciaUser(sql));
-        if (usuarios.isEmpty()) {
-            return null;
-        }
-        return usuarios.get(0);
-    }
-
-    /**
-     * Funcion que te devuleve todos los usuarios de la base de datos
-     * @return lista de usuarios
-     */
-    public HashSet<UsuarioEntity> obtenerTodosLosUsuarios(){
-        String sql = "SELECT * FROM usuarios";
-        return leerSentenciaUser(sql);
-    }
-
-    /**
-     * Metodo para borrar un usuario
-     * @param user usuario a borrar
+     * Metodo para borrar un juego
+     * @param user juego a borrar
      * @return true/false
      */
-    public boolean borrarUsuario(UsuarioEntity user){
-        String sql = "DELETE FROM usuarios where user ='"+ user + "'";
+    public boolean borrarJuego(JuegoEntity juego){
+        String sql = "DELETE FROM juegos where user ='"+ juego + "'";
         try {
             PreparedStatement sentencia = conectar().prepareStatement(sql);
             sentencia.execute();

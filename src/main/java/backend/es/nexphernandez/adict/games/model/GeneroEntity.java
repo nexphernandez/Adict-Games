@@ -4,20 +4,20 @@ import java.util.Objects;
  * @author nexphernanez
  * @version 1.0.0
  */
-public class GeneroEntitty {
+public class GeneroEntity {
     private String genero;
 
     /**
      * Constructor vacio
      */
-    public GeneroEntitty() {
+    public GeneroEntity() {
     }
 
     /**
      * Constructor con el atributo genero
      * @param genero
      */
-    public GeneroEntitty(String genero) {
+    public GeneroEntity(String genero) {
         this.genero = genero;
     }
 
@@ -34,11 +34,11 @@ public class GeneroEntitty {
     public boolean equals(Object o) {
         if (o == this)
             return true;
-        if (!(o instanceof GeneroEntitty)) {
+        if (!(o instanceof GeneroEntity)) {
             return false;
         }
-        GeneroEntitty generoEntitty = (GeneroEntitty) o;
-        return Objects.equals(genero, generoEntitty.genero);
+        GeneroEntity generoEntity = (GeneroEntity) o;
+        return Objects.equals(genero, generoEntity.genero);
     }
 
     @Override

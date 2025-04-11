@@ -56,19 +56,6 @@ INSERT INTO rol (nombre) VALUES
     ('Administrador'),
     ('Editor'),
     ('Usuario');
-
-CREATE TABLE usuario_rol (
-    usuario_id INTEGER,
-    rol_id INTEGER,
-    PRIMARY KEY (usuario_id, rol_id),
-    FOREIGN KEY (usuario_id) REFERENCES usuario(id) ON DELETE CASCADE,
-    FOREIGN KEY (rol_id) REFERENCES rol(id) ON DELETE CASCADE
-);
-
-INSERT INTO usuario_rol (usuario_id, rol_id) VALUES
-    (1, 2),
-    (1, 1),
-    (1, 3);
     
 
 CREATE TABLE juego_genero (

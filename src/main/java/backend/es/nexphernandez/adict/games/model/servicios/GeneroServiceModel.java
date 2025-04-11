@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashSet;
 
-import backend.es.nexphernandez.adict.games.model.GeneroEntitty;
+import backend.es.nexphernandez.adict.games.model.GeneroEntity;
 import backend.es.nexphernandez.adict.games.model.abstractas.Conexion;
 
 public class GeneroServiceModel extends Conexion{
@@ -28,14 +28,14 @@ public class GeneroServiceModel extends Conexion{
      * @param sql sentencia a aplicar
      * @return lista de juegos
      */
-    public HashSet<GeneroEntitty> leerSentenciaGenero(String sql){
-        HashSet<GeneroEntitty> generos = new HashSet<>();
+    public HashSet<GeneroEntity> leerSentenciaGenero(String sql){
+        HashSet<GeneroEntity> generos = new HashSet<>();
         try {
             PreparedStatement sentencia = conectar().prepareStatement(sql);
             ResultSet resultado = sentencia.executeQuery();
             while (resultado.next()) {
                 String nombreStr = resultado.getString("nombre");
-                GeneroEntitty genero = new GeneroEntitty(nombreStr);
+                GeneroEntity genero = new GeneroEntity(nombreStr);
                 generos.add(genero);
             }
         } catch (Exception e) {
@@ -52,7 +52,7 @@ public class GeneroServiceModel extends Conexion{
      * @param genero genero con los datos para actualizar
      * @return true/false
      */
-    public boolean actualizarDatosGenero(String sql, GeneroEntitty genero){
+    public boolean actualizarDatosGenero(String sql, GeneroEntity genero){
         try {
             PreparedStatement sentencia = conectar().prepareStatement(sql);
             sentencia.setString(1, genero.getGenero());
@@ -70,7 +70,7 @@ public class GeneroServiceModel extends Conexion{
      * @param genero a aniadir
      * @return true/false
      */
-    public boolean aniadirGenero(GeneroEntitty genero){
+    public boolean aniadirGenero(GeneroEntity genero){
         if (genero == null) {
             return false;
         }
@@ -82,7 +82,7 @@ public class GeneroServiceModel extends Conexion{
      * Funcion que te devuleve todos los generos de la base de datos
      * @return lista de generos
      */
-    public HashSet<GeneroEntitty> obtenerTodosLosGeneros(){
+    public HashSet<GeneroEntity> obtenerTodosLosGeneros(){
         String sql = "SELECT * FROM generos";
         return leerSentenciaGenero(sql);
     }
@@ -92,7 +92,7 @@ public class GeneroServiceModel extends Conexion{
      * @param user genero a borrar
      * @return true/false
      */
-    public boolean borrarGenero(GeneroEntitty genero){
+    public boolean borrarGenero(GeneroEntity genero){
         String sql = "DELETE FROM generos where nombre ='"+ genero + "'";
         try {
             PreparedStatement sentencia = conectar().prepareStatement(sql);

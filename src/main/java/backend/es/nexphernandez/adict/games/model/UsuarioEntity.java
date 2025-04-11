@@ -13,7 +13,7 @@ public class UsuarioEntity {
     private String email;
     private String nombre;
     private String contrasenia;
-    private String rol;
+    private RolEntity rol;
     private HashSet<JuegoEntity> juegosComprados;
 
     /**
@@ -35,7 +35,7 @@ public class UsuarioEntity {
         this.email = email;
         this.contrasenia = contrasenia;
         this.nombre = nombre;
-        this.rol = "Usuario";
+        this.rol = new RolEntity("Usuario");
         this.juegosComprados = new HashSet<>();
     }
 
@@ -47,7 +47,7 @@ public class UsuarioEntity {
      * @param contrasenia del usuario
      * @param rol del usuario
      */
-    public UsuarioEntity(String user, String email,String nombre,String contrasenia, String rol){
+    public UsuarioEntity(String user, String email,String nombre,String contrasenia, RolEntity rol){
         this.user = user;
         this.email = email;
         this.contrasenia = contrasenia;
@@ -88,13 +88,15 @@ public class UsuarioEntity {
         this.contrasenia = contrasenia;
     } 
 
-    public String getRol() {
+
+    public RolEntity getRol() {
         return this.rol;
     }
 
-    public void setRol(String rol) {
+    public void setRol(RolEntity rol) {
         this.rol = rol;
     }
+    
 
     public HashSet<JuegoEntity> getJuegosComprados() {
         return this.juegosComprados;

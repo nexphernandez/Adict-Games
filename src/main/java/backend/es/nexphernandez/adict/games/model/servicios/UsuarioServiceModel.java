@@ -67,7 +67,7 @@ public class UsuarioServiceModel extends Conexion{
             sentencia.setString(1, user.getUser());
             sentencia.setString(2, user.getEmail());
             sentencia.setString(3, user.getNombre());
-            sentencia.setString(4, user.getNombre());
+            sentencia.setString(4, user.getContrasenia());
             return true;
         } catch (Exception e) {
             e.printStackTrace();

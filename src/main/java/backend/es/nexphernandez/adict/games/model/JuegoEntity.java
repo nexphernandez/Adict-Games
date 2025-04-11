@@ -9,7 +9,7 @@ public class JuegoEntity {
     private String nombre;
     private String urlImangen;
     private String codigo;
-    private HashSet<GeneroEntitty> generos;
+    private HashSet<GeneroEntity> generos;
 
     /**
      * Constructor vacio
@@ -25,7 +25,7 @@ public class JuegoEntity {
      * @param codigo del juego
      */
 
-    public JuegoEntity(String nombre, String urlImangen,String codigo, HashSet<GeneroEntitty> generos) {
+    public JuegoEntity(String nombre, String urlImangen,String codigo, HashSet<GeneroEntity> generos) {
         this.nombre = nombre;
         this.urlImangen = urlImangen;
         this.codigo = codigo;
@@ -33,11 +33,11 @@ public class JuegoEntity {
     }
     
 
-    public HashSet<GeneroEntitty> getGeneros() {
+    public HashSet<GeneroEntity> getGeneros() {
         return this.generos;
     }
 
-    public void setGeneros(HashSet<GeneroEntitty> generos) {
+    public void setGeneros(HashSet<GeneroEntity> generos) {
         this.generos = generos;
     }
 
