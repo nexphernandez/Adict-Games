@@ -1,5 +1,9 @@
 package backend.es.nexphernandez.adict.games.controller.abstractas;
 import backend.es.nexphernandez.adict.games.config.ConfigManager;
+import backend.es.nexphernandez.adict.games.model.servicios.GeneroServiceModel;
+import backend.es.nexphernandez.adict.games.model.servicios.JuegoServiceModel;
+import backend.es.nexphernandez.adict.games.model.servicios.RolServiceModel;
+import backend.es.nexphernandez.adict.games.model.servicios.UsuarioServiceModel;
 import javafx.fxml.FXML;
 /**
  * @author nexphernandez
@@ -21,6 +25,12 @@ public class AbstractController {
     private final String ficheroStr= "idioma-";
     private static String idiomaActual = "es"; 
 
+    static final String PATH_DB = "src/main/resources/adictGames.db";
+
+    GeneroServiceModel generoServiceModel;
+    JuegoServiceModel juegoServiceModel;
+    RolServiceModel rolServiceModel;
+    UsuarioServiceModel usuarioServiceModel;
     @FXML
     public Hyperlink iniciarSesionLink;
 
@@ -170,6 +180,14 @@ public class AbstractController {
 
     @FXML
     public TextArea referencias;
+
+
+    public AbstractController(){
+        usuarioServiceModel = new UsuarioServiceModel();
+        generoServiceModel = new GeneroServiceModel();
+        rolServiceModel = new RolServiceModel();
+        juegoServiceModel = new JuegoServiceModel();
+    }
 
     /**
      * Funcion para cargar el idioma
