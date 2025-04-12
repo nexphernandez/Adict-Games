@@ -21,7 +21,8 @@
    <Label fx:id="nombreUsuarioLabel" styleClass="new-user-label" text="Nombre de Usuario" textAlignment="RIGHT" />
    <TextField fx:id="textFieldUsuario" maxHeight="26.0" maxWidth="303.0" promptText="Inserte usario" />
    <Label fx:id="contraseniaLabel" styleClass="new-user-label" text="Contraseña" textAlignment="RIGHT" />
-   <PasswordField fx:id="passwordField" maxHeight="26.0" maxWidth="303.0" prefHeight="26.0" prefWidth="248.0" text="********" />
+   <PasswordField fx:id="passwordField" maxHeight="26.0" maxWidth="303.0" prefHeight="26.0" prefWidth="248.0" promptText="********" />
+   <Label fx:id="textLabel" styleClass="new-user-label" textAlignment="RIGHT" />
     <Button fx:id="entrarButton" onAction="#onAceptarClick" styleClass="register-button" text="Entrar" />
    <Hyperlink fx:id="olvidarContraseniaLabel" onAction="#onRecuperarClick" styleClass="new-user-label" text="¿Olvidó la contraseña?" />
    <Line endX="100.0" startX="-197.3358612060547" startY="1.6568450927734375" stroke="WHITE" strokeLineCap="ROUND" strokeWidth="5.0" />

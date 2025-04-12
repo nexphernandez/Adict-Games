@@ -1,5 +1,6 @@
 package backend.es.nexphernandez.adict.games.controller.abstractas;
 import backend.es.nexphernandez.adict.games.config.ConfigManager;
+import backend.es.nexphernandez.adict.games.model.UsuarioEntity;
 import backend.es.nexphernandez.adict.games.model.servicios.GeneroServiceModel;
 import backend.es.nexphernandez.adict.games.model.servicios.JuegoServiceModel;
 import backend.es.nexphernandez.adict.games.model.servicios.RolServiceModel;
@@ -25,12 +26,14 @@ public class AbstractController {
     private final String ficheroStr= "idioma-";
     private static String idiomaActual = "es"; 
 
+    protected UsuarioEntity usuario = null;
+
     static final String PATH_DB = "src/main/resources/adictGames.db";
 
-    GeneroServiceModel generoServiceModel;
-    JuegoServiceModel juegoServiceModel;
-    RolServiceModel rolServiceModel;
-    UsuarioServiceModel usuarioServiceModel;
+    protected GeneroServiceModel generoServiceModel;
+    protected JuegoServiceModel juegoServiceModel;
+    protected RolServiceModel rolServiceModel;
+    protected UsuarioServiceModel usuarioServiceModel;
     @FXML
     public Hyperlink iniciarSesionLink;
 
@@ -183,10 +186,10 @@ public class AbstractController {
 
 
     public AbstractController(){
-        usuarioServiceModel = new UsuarioServiceModel();
-        generoServiceModel = new GeneroServiceModel();
-        rolServiceModel = new RolServiceModel();
-        juegoServiceModel = new JuegoServiceModel();
+        usuarioServiceModel = new UsuarioServiceModel(PATH_DB);
+        generoServiceModel = new GeneroServiceModel(PATH_DB);
+        rolServiceModel = new RolServiceModel(PATH_DB);
+        juegoServiceModel = new JuegoServiceModel(PATH_DB);
     }
 
     /**
@@ -202,6 +205,14 @@ public class AbstractController {
         ConfigManager.ConfigProperties.setPath(path);
     }
 
+    /**
+     * Funcion para obtener el usuario guardado
+     */
+    public UsuarioEntity getUsuario(){
+        return this.usuario;
+    }
+
+    
     /**
      * Método para obtener el idioma actual.
      */
@@ -262,7 +273,7 @@ public class AbstractController {
         iniciarSesionLabel.setText(ConfigManager.ConfigProperties.getProperty("iniciarSesionLabel"));
         nombreUsuarioLabel.setText(ConfigManager.ConfigProperties.getProperty("nombreUsuarioLabel"));
         contraseniaLabel.setText(ConfigManager.ConfigProperties.getProperty("contraseniaLabel"));
-        textFieldUsuario.setText(ConfigManager.ConfigProperties.getProperty("textFieldUsuario")); 
+        textFieldUsuario.setPromptText(ConfigManager.ConfigProperties.getProperty("textFieldUsuario")); 
         entrarButton.setText(ConfigManager.ConfigProperties.getProperty("entrarButton")); 
         olvidarContraseniaLabel.setText(ConfigManager.ConfigProperties.getProperty("olvidarContraseniaLabel")); 
         nuevoUsuarioLabel.setText(ConfigManager.ConfigProperties.getProperty("nuevoUsuarioLabel")); 
@@ -329,10 +340,10 @@ public class AbstractController {
     public void cambiarIdiomaComprar(){
         comprarLabel1.setText(ConfigManager.ConfigProperties.getProperty("comprarLabel"));
         numeroCuentaLabel.setText(ConfigManager.ConfigProperties.getProperty("numeroCuentaLabel"));
-        textFieldNumeroCuenta.setText(ConfigManager.ConfigProperties.getProperty("textFieldNumeroCuenta"));
+        textFieldNumeroCuenta.setPromptText(ConfigManager.ConfigProperties.getProperty("textFieldNumeroCuenta"));
         nombreLabel.setText(ConfigManager.ConfigProperties.getProperty("nombreLabel")); 
-        textFieldNombre.setText(ConfigManager.ConfigProperties.getProperty("textFieldNombre")); 
-        emailField.setText(ConfigManager.ConfigProperties.getProperty("emailField")); 
+        textFieldNombre.setPromptText(ConfigManager.ConfigProperties.getProperty("textFieldNombre")); 
+        emailField.setPromptText(ConfigManager.ConfigProperties.getProperty("emailField")); 
         entrarButton.setText(ConfigManager.ConfigProperties.getProperty("entrarButton")); 
         atrasButton.setText(ConfigManager.ConfigProperties.getProperty("atrasButton")); 
     }

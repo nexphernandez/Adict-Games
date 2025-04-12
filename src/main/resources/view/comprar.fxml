@@ -19,9 +19,9 @@
    <Label fx:id="numeroCuentaLabel" styleClass="new-user-label" text="Número de cuenta bancaria" textAlignment="RIGHT" />
    <TextField fx:id="textFieldNumeroCuenta" promptText="Inserte número" />
    <Label fx:id="nombreLabel" styleClass="new-user-label" text="Nombre" textAlignment="RIGHT" />
-   <TextField fx:id="textFieldNombre" promptText="Inserte nombre" />
+   <TextField fx:id="textFieldNombre"  text=""/>
    <Label fx:id="emailLabel" styleClass="new-user-label" text="Email" />
-   <TextField fx:id="emailField" promptText="Inserte email" />
+   <TextField fx:id="emailField" text=""/>
     <Button fx:id="entrarButton" onAction="#onComprarClick" styleClass="register-button" text="Entrar" />
    <Button fx:id="atrasButton" onAction="#onAtrasClick" styleClass="register-button" text="Volver" />
     

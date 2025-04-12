@@ -15,10 +15,13 @@ import backend.es.nexphernandez.adict.games.model.abstractas.Conexion;
  */
 public class UsuarioServiceModel extends Conexion{
     
+    private HashSet<UsuarioEntity> usuarios;
     /**
      * Constructor vacio
      */
     public UsuarioServiceModel(){
+        super();
+        usuarios = new HashSet<>();
     }
 
     /**
@@ -27,6 +30,7 @@ public class UsuarioServiceModel extends Conexion{
      */
     public UsuarioServiceModel(String unaRutaBD){
         super(unaRutaBD);
+        usuarios = new HashSet<>(obtenerTodosLosUsuarios());
     }
 
     /**
@@ -43,7 +47,7 @@ public class UsuarioServiceModel extends Conexion{
                 String userStr = resultado.getString("user");
                 String emailStr = resultado.getString("email");
                 String nombreStr = resultado.getString("nombre");
-                String contraseniaStr = resultado.getString("contrasenia");
+                String contraseniaStr = resultado.getString("password");
                 UsuarioEntity usuario = new UsuarioEntity(userStr, emailStr, nombreStr, contraseniaStr);
                 usuarios.add(usuario);
             }
@@ -68,6 +72,7 @@ public class UsuarioServiceModel extends Conexion{
             sentencia.setString(2, user.getEmail());
             sentencia.setString(3, user.getNombre());
             sentencia.setString(4, user.getContrasenia());
+            sentencia.executeUpdate();
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -86,7 +91,7 @@ public class UsuarioServiceModel extends Conexion{
         if (usuario == null) {
             return false;
         }
-        String sql = "INSERT INTO usuarios (user, email, nombre, contrasenia) Values (?,?,?,?)";
+        String sql = "INSERT INTO usuarios (user, email, nombre, password) Values (?,?,?,?)";
         return actualizarDatosUsuario(sql, usuario);
     }
 
@@ -95,8 +100,9 @@ public class UsuarioServiceModel extends Conexion{
      * @param user nombre de usuario
      * @return usuario buscado
      */
-    public UsuarioEntity obtenerUsuarioPorUser(String user){
-        String sql = "SELECT * FROM usuarios WHERE user = '" + user + "'";
+    public UsuarioEntity obtenerUsuarioPorUser(String nombreUsuario, String contrasenia){
+        String sql = "Select * from usuarios " + "where user ='" + nombreUsuario + 
+                    "' and password = '" + contrasenia + "'";
         ArrayList<UsuarioEntity> usuarios = new ArrayList<>(leerSentenciaUser(sql));
     
         if (usuarios.isEmpty()) {
@@ -110,8 +116,9 @@ public class UsuarioServiceModel extends Conexion{
      * @param email email del usuario buscado
      * @return usuario buscado
      */
-    public UsuarioEntity obtenerUsuariosPorEmail(String email){
-        String sql = "SELECT * FROM usuarios WHERE email = '" + email + "'";
+    public UsuarioEntity obtenerUsuariosPorEmail(String email,  String contrasenia){
+        String sql = "SELECT * FROM usuarios WHERE email = '" + email + 
+                    "' and password = '" + contrasenia + "'";
         ArrayList<UsuarioEntity> usuarios = new ArrayList<>(leerSentenciaUser(sql));
         if (usuarios.isEmpty()) {
             return null;
@@ -141,6 +148,34 @@ public class UsuarioServiceModel extends Conexion{
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+        return false;
+    }
+
+    /**
+     * Funcion que verifica si existe el emai asi en los ficheros
+     * @param email a verificar
+     * @return true/false
+     */
+    public boolean verificarEmail(String email){
+        for (UsuarioEntity usuarioModelBuscar : usuarios) {
+            if (usuarioModelBuscar.getEmail().equals(email)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Funcion que verifica si existe el usuario en los ficheros
+     * @param nombreUsuario a verificar
+     * @return true/false
+     */
+    public boolean verificarUsuario(String nombreUsuario){
+        for (UsuarioEntity usuarioModelBuscar : usuarios) {
+            if (usuarioModelBuscar.getUser().equals(nombreUsuario)) {
+                return true;
+            }
         }
         return false;
     }

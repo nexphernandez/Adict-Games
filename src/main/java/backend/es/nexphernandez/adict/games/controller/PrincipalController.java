@@ -62,9 +62,6 @@ public class PrincipalController extends AbstractController {
         }
     }
 
-    @FXML
-    protected void onClickMenu() {
 
-    }
 
 }

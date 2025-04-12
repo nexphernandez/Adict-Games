@@ -22,6 +22,7 @@
    <TextField fx:id="emailField" promptText="Inserte email" />
     <Label fx:id="repetirEmailLabel" styleClass="new-user-label" text="Repetir email" />
    <TextField fx:id="emailField1" promptText="Inserte email" />
+   <Label fx:id="textLabel" styleClass="new-user-label" />
     <Button fx:id="entrarButton" onAction="#onRegistrarClick" styleClass="register-button" text="Entrar" />
     <Button fx:id="atrasButton" mnemonicParsing="false" onAction="#onAtrasClick" styleClass="register-button" text="Volver" />
 </VBox>

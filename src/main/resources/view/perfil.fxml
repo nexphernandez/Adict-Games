@@ -18,14 +18,14 @@
       </image>
    </ImageView>
    <Label fx:id="nombreUsuarioLabel" styleClass="new-user-label" text="Nombre de Usuario" textAlignment="RIGHT" />
-   <TextField fx:id="textFielfUsuario" promptText="Inserte usario" text="nexphernandez" />
+   <TextField fx:id="textFieldUsuario" promptText="Inserte usario" text="nexphernandez" />
    <Label fx:id="contraseniaLabel" styleClass="new-user-label" text="Contraseña" textAlignment="RIGHT" />
-   <PasswordField fx:id="passwoerfield" text="********" />
+   <PasswordField fx:id="passwordField" text="********" />
     
     <Label fx:id="nombreLabel" styleClass="new-user-label" text="Nombre" />
-   <TextField fx:id="textFielfUsuario11" promptText="Inserte email" text="nicolas" />
+   <TextField fx:id="nombreField" text="nicolas" />
    <Label fx:id="olvidarContraseniaLabel1" styleClass="new-user-label" text="Email" />
-   <TextField fx:id="textFielfUsuario1" promptText="Inserte email" text="nicolas@gmail.com" />
+   <TextField fx:id="emailField" promptText="Inserte email" text="nicolas@gmail.com" />
    <Button fx:id="entrarButton" styleClass="register-button" text="Aceptar" />
    <Button mnemonicParsing="false" fx:id="atrasButton" onAction="#onAtrasClick" styleClass="register-button" text="Volver"   />
 
