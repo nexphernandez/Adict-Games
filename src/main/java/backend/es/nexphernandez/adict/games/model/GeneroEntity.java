@@ -5,12 +5,22 @@ import java.util.Objects;
  * @version 1.0.0
  */
 public class GeneroEntity {
+    private int id;
     private String genero;
 
     /**
      * Constructor vacio
      */
     public GeneroEntity() {
+    }
+
+    /**
+     * Constructor con el atributo genero
+     * @param genero
+     */
+    public GeneroEntity(int id,String genero) {
+        this.id = id;
+        this.genero = genero;
     }
 
     /**
@@ -29,6 +39,14 @@ public class GeneroEntity {
         this.genero = genero;
     }
 
+    public int getId() {
+        return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -38,12 +56,12 @@ public class GeneroEntity {
             return false;
         }
         GeneroEntity generoEntity = (GeneroEntity) o;
-        return Objects.equals(genero, generoEntity.genero);
+        return Objects.equals(id, generoEntity.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(genero);
+        return Objects.hash(id);
     }
 
     @Override

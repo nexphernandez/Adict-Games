@@ -56,6 +56,7 @@ public class GeneroServiceModel extends Conexion{
         try {
             PreparedStatement sentencia = conectar().prepareStatement(sql);
             sentencia.setString(1, genero.getGenero());
+            sentencia.executeUpdate();
             return true;
         } catch (Exception e) {
             e.printStackTrace();
