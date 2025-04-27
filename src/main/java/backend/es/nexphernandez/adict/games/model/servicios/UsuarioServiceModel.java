@@ -140,10 +140,11 @@ public class UsuarioServiceModel extends Conexion{
      * @param user usuario a borrar
      * @return true/false
      */
-    public boolean borrarUsuario(UsuarioEntity user){
-        String sql = "DELETE FROM usuarios where user ='"+ user + "'";
+    public boolean borrarUsuario(UsuarioEntity user) {
+        String sql = "DELETE FROM usuarios WHERE user = ?";
         try {
             PreparedStatement sentencia = conectar().prepareStatement(sql);
+            sentencia.setString(1, user.getUser());
             sentencia.execute();
             return true;
         } catch (SQLException e) {
@@ -153,29 +154,39 @@ public class UsuarioServiceModel extends Conexion{
     }
 
     /**
-     * Funcion que verifica si existe el emai asi en los ficheros
+     * Funcion que verifica si existe el emai en la bbdd
      * @param email a verificar
      * @return true/false
      */
-    public boolean verificarEmail(String email){
-        for (UsuarioEntity usuarioModelBuscar : usuarios) {
-            if (usuarioModelBuscar.getEmail().equals(email)) {
-                return true;
+    public boolean verificarEmail(String email) {
+        String sql = "SELECT COUNT(*) FROM usuarios WHERE email = ?";
+        try (PreparedStatement stmt = conectar().prepareStatement(sql)) {
+            stmt.setString(1, email);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(1) > 0;
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return false;
     }
 
     /**
-     * Funcion que verifica si existe el usuario en los ficheros
+     * Funcion que verifica si existe el usuario en la bbdd
      * @param nombreUsuario a verificar
      * @return true/false
      */
-    public boolean verificarUsuario(String nombreUsuario){
-        for (UsuarioEntity usuarioModelBuscar : usuarios) {
-            if (usuarioModelBuscar.getUser().equals(nombreUsuario)) {
-                return true;
+    public boolean verificarUsuario(String nombreUsuario) {
+        String sql = "SELECT COUNT(*) FROM usuarios WHERE user = ?";
+        try (PreparedStatement stmt = conectar().prepareStatement(sql)) {
+            stmt.setString(1, nombreUsuario);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(1) > 0;
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return false;
     }

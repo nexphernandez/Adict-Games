@@ -7,27 +7,29 @@ import java.util.HashSet;
 import backend.es.nexphernandez.adict.games.model.RolEntity;
 import backend.es.nexphernandez.adict.games.model.abstractas.Conexion;
 
-public class RolServiceModel extends Conexion{
+public class RolServiceModel extends Conexion {
     /**
      * Constructor vacio
      */
-    public RolServiceModel(){
+    public RolServiceModel() {
     }
 
     /**
      * Constructor con el path de la bbdd
+     * 
      * @param unaRutaBD path de la bbdd
      */
-    public RolServiceModel(String unaRutaBD){
+    public RolServiceModel(String unaRutaBD) {
         super(unaRutaBD);
     }
 
     /**
      * Funcion que aplica una sentencia en la tabla rol
+     * 
      * @param sql sentencia a aplicar
      * @return lista de roles
      */
-    public HashSet<RolEntity> leerSentenciaRol(String sql){
+    public HashSet<RolEntity> leerSentenciaRol(String sql) {
         HashSet<RolEntity> roles = new HashSet<>();
         try {
             PreparedStatement sentencia = conectar().prepareStatement(sql);
@@ -39,22 +41,38 @@ public class RolServiceModel extends Conexion{
             }
         } catch (Exception e) {
             e.printStackTrace();
-        } finally{
+        } finally {
             cerrar();
         }
         return roles;
     }
 
     /**
-     * Funcion que actualiza los datos segun la secuencia introducida en la tabla rol
+     * Funcion para aniadir un usuario a la bbdd
+     * @param rol a aniadir
+     * @return true/false
+     */
+    public boolean aniadirRol(RolEntity rol) {
+        if (rol == null) {
+            return false;
+        }
+        String sql = "INSERT INTO rol (nombre) VALUES (?)";
+        return actualizarDatosRol(sql, rol);
+    }
+
+    /**
+     * Funcion que actualiza los datos segun la secuencia introducida en la tabla
+     * rol
+     * 
      * @param sql sentencia a realizar
      * @param rol rol con los datos para actualizar
      * @return true/false
      */
-    public boolean actualizarDatosRol(String sql, RolEntity rol){
+    public boolean actualizarDatosRol(String sql, RolEntity rol) {
         try {
             PreparedStatement sentencia = conectar().prepareStatement(sql);
             sentencia.setString(1, rol.getRol());
+            sentencia.executeUpdate();
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -66,11 +84,12 @@ public class RolServiceModel extends Conexion{
 
     /**
      * Funcion que te devuleve todos los roles de la base de datos
+     * 
      * @return lista de roles
      */
-    public HashSet<RolEntity> obtenerTodosLosRoles(){
+    public HashSet<RolEntity> obtenerTodosLosRoles() {
         String sql = "SELECT * FROM rol";
         return leerSentenciaRol(sql);
     }
-    
+
 }
