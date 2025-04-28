@@ -1,8 +1,7 @@
-package es.nexphernandez.adict.games;
+package es.nexphernandez.adict.games.servicios;
 
 import backend.es.nexphernandez.adict.games.model.GeneroEntity;
 import backend.es.nexphernandez.adict.games.model.JuegoEntity;
-import backend.es.nexphernandez.adict.games.model.UsuarioEntity;
 import backend.es.nexphernandez.adict.games.model.servicios.JuegoServiceModel;
 
 import org.junit.jupiter.api.AfterAll;
@@ -51,6 +50,11 @@ public class JuegoServiceModelTest {
         connection.close();
     }
 
+    @Test
+    void testConstructorVacio(){
+        JuegoServiceModel juegoServiceModel = new JuegoServiceModel();
+        assertNotNull(juegoServiceModel);
+    }
     @Test
     void testAniadirJuego() {
         boolean aniadido = juegoServiceModel.aniadirJuego(juegoEntity);

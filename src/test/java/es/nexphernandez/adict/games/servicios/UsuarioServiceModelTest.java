@@ -1,4 +1,4 @@
-package es.nexphernandez.adict.games;
+package es.nexphernandez.adict.games.servicios;
 
 import backend.es.nexphernandez.adict.games.model.UsuarioEntity;
 import backend.es.nexphernandez.adict.games.model.servicios.UsuarioServiceModel;
