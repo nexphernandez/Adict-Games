@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Objects;
 
 public class UsuarioEntity {
-    
+    private int id;
     private String user;
     private String email;
     private String nombre;
@@ -95,6 +95,14 @@ public class UsuarioEntity {
 
     public void setRol(RolEntity rol) {
         this.rol = rol;
+    }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
     
 

@@ -6,6 +6,7 @@ import java.util.Objects;
  * @version 1.0.0
  */
 public class JuegoEntity {
+    private int id;
     private String nombre;
     private String urlImangen;
     private String codigo;
@@ -63,6 +64,14 @@ public class JuegoEntity {
 
     public void setCodigo(String codigo) {
         this.codigo = codigo;
+    }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override

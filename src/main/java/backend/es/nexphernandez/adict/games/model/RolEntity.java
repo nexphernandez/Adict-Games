@@ -5,6 +5,7 @@ import java.util.Objects;
  * @version 1.0.0
  */
 public class RolEntity {
+    private int id;
     private String rol;
 
     /**
@@ -29,6 +30,14 @@ public class RolEntity {
         this.rol = rol;
     }
 
+    public int getId() {
+        return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == this)
@@ -37,12 +46,12 @@ public class RolEntity {
             return false;
         }
         RolEntity rolEntity = (RolEntity) o;
-        return Objects.equals(rol, rolEntity.rol);
+        return Objects.equals(id, rolEntity.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(rol);
+        return Objects.hash(id);
     }
 
     @Override

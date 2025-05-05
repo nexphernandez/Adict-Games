@@ -34,8 +34,9 @@ public class GeneroServiceModel extends Conexion{
             PreparedStatement sentencia = conectar().prepareStatement(sql);
             ResultSet resultado = sentencia.executeQuery();
             while (resultado.next()) {
+                int id = resultado.getInt("id");
                 String nombreStr = resultado.getString("nombre");
-                GeneroEntity genero = new GeneroEntity(nombreStr);
+                GeneroEntity genero = new GeneroEntity(id,nombreStr);
                 generos.add(genero);
             }
         } catch (Exception e) {
@@ -101,8 +102,15 @@ public class GeneroServiceModel extends Conexion{
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally{
+            cerrar();
         }
         return false;
+    }
+
+    public HashSet<GeneroEntity>  buscarGeneroporId(int idGenero){
+        String sql= "select * from generos where id='"+idGenero+"'";
+        return leerSentenciaGenero(sql);
     }
     
 }

@@ -3,7 +3,6 @@ package backend.es.nexphernandez.adict.games.model.servicios;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashSet;
 
@@ -32,7 +31,7 @@ public class JuegoServiceModel extends Conexion {
      */
     public JuegoServiceModel(String unaRutaBD) {
         super(unaRutaBD);
-        generoServiceModel = new GeneroServiceModel();
+        generoServiceModel = new GeneroServiceModel(unaRutaBD);
     }
 
     /**
@@ -49,7 +48,7 @@ public class JuegoServiceModel extends Conexion {
             while (resultado.next()) {
                 int idJuego = resultado.getInt("id");
                 String nombreStr = resultado.getString("nombre");
-                String urlImangenStr = resultado.getString("urlImangen");
+                String urlImangenStr = resultado.getString("urlImagen");
                 String codigoStr = resultado.getString("codigo");
                 HashSet<GeneroEntity> generos = obtenerGenerosPorJuego(idJuego);
                 JuegoEntity juego = new JuegoEntity(nombreStr, urlImangenStr, codigoStr, generos);
@@ -64,17 +63,13 @@ public class JuegoServiceModel extends Conexion {
     }
 
     private HashSet<GeneroEntity> obtenerGenerosPorJuego(int juegoId) {
-        String sql = "SELECT g.id, g.nombre FROM generos AS g " +
-                     "INNER JOIN juego_genero AS jg ON g.id = jg.genero_id " +
-                     "WHERE jg.juego_id = ?";
+        String sql = "Select * from juego_genero where juego_id ='"+juegoId+"'";
         HashSet<GeneroEntity> generos = new HashSet<>();
         try (PreparedStatement stmt = conectar().prepareStatement(sql)) {
-            stmt.setInt(1, juegoId);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-                int id = rs.getInt("id");
-                String nombre = rs.getString("nombre");
-                generos.add(new GeneroEntity(id, nombre));
+                int id = rs.getInt("genero_id");
+                generos.addAll(generoServiceModel.buscarGeneroporId(id));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -82,40 +77,7 @@ public class JuegoServiceModel extends Conexion {
         return generos;
     }
 
-    /**
-     * Funcion que actualiza los datos segun la secuencia introducida en la tabla
-     * juego
-     * 
-     * @param sql         sentencia a realizar
-     * @param JuegoEntity juego con los datos para actualizar
-     * @return true/false
-     */
-    public boolean actualizarDatosJuego(String sql, JuegoEntity juego) {
-        try {
-            PreparedStatement sentencia = conectar().prepareStatement(sql);
-            sentencia.setString(1, juego.getNombre());
-            sentencia.setString(2, juego.getUrlImangen());
-            sentencia.setString(3, juego.getCodigo());
-            HashSet<GeneroEntity> generos = juego.getGeneros();
-            String sqlGenero = "Update nombre from generos as g " +
-                    "inner join juego_genero as jg " +
-                    "on g.id = jg.juego_id " +
-                    "inner join juegos as j " +
-                    "on jg.genero_id = j.id" +
-                    " Where j.codigo = " + juego.getCodigo();
-            for (GeneroEntity generoBuscado : generos) {
-                generoServiceModel.actualizarDatosGenero(sqlGenero, generoBuscado);
-            }
-            sentencia.setString(4, juego.getNombre());
-            sentencia.executeUpdate();
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            cerrar();
-        }
-        return false;
-    }
+    
 
     /**
      * Funcion para aniadir un juego a la bbdd
@@ -128,32 +90,27 @@ public class JuegoServiceModel extends Conexion {
             return false;
         }
         String sql = "INSERT INTO juegos (nombre, urlImagen, codigo) VALUES (?, ?, ?)";
-        try (PreparedStatement stmt = conectar().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+        String sql2 = "INSERT INTO juego_genero (juego_id, genero_id) VALUES (?, ?)";
+        try (PreparedStatement stmt = conectar().prepareStatement(sql)) {
             stmt.setString(1, juego.getNombre());
             stmt.setString(2, juego.getUrlImangen());
             stmt.setString(3, juego.getCodigo());
             stmt.executeUpdate();
-
-            // Obtener el ID del juego insertado
-            ResultSet rs = stmt.getGeneratedKeys();
-            if (rs.next()) {
-                int juegoId = rs.getInt(1);
-
-                // Insertar géneros en la tabla relacionada
-                for (GeneroEntity genero : juego.getGeneros()) {
-                    String sqlGenero = "INSERT INTO juego_genero (juego_id, genero_id) VALUES (?, ?)";
-                    try (PreparedStatement stmtGenero = conectar().prepareStatement(sqlGenero)) {
-                        stmtGenero.setInt(1, juegoId);
-                        stmtGenero.setInt(2, genero.getId());
-                        stmtGenero.executeUpdate();
-                    }
-                }
+            PreparedStatement sentencia = conectar().prepareStatement(sql2);
+            ResultSet resultado = stmt.executeQuery();
+            for (GeneroEntity genero : juego.getGeneros()) {
+                sentencia.setInt(1, resultado.getInt("id"));
+                sentencia.setInt(2, genero.getId());
+                sentencia.executeUpdate();
             }
             return true;
         } catch (Exception e) {
             e.printStackTrace();
             return false;
+        } finally{
+            cerrar();
         }
+
     }
 
     /**
@@ -165,7 +122,6 @@ public class JuegoServiceModel extends Conexion {
     public JuegoEntity obtenerJuegosPorNombre(String nombre) {
         String sql = "SELECT * FROM juegos WHERE nombre = '" + nombre + "'";
         ArrayList<JuegoEntity> juegos = new ArrayList<>(leerSentenciaJuego(sql));
-
         if (juegos.isEmpty()) {
             return null;
         }
@@ -179,13 +135,14 @@ public class JuegoServiceModel extends Conexion {
      * @return true/false
      */
     public boolean borrarJuego(JuegoEntity juego) {
-        String sql = "DELETE FROM juegos where nombre ='" + juego + "'";
+        String sql = "DELETE FROM juegos where codigo ='" + juego.getCodigo() + "'";
         try {
             PreparedStatement sentencia = conectar().prepareStatement(sql);
-            sentencia.execute();
-            return true;
+            return sentencia.execute();
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally{
+            cerrar();
         }
         return false;
     }
