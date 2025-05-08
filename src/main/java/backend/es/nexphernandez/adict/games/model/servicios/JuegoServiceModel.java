@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashSet;
 
+
 import backend.es.nexphernandez.adict.games.model.GeneroEntity;
 import backend.es.nexphernandez.adict.games.model.JuegoEntity;
 import backend.es.nexphernandez.adict.games.model.abstractas.Conexion;
@@ -62,8 +63,14 @@ public class JuegoServiceModel extends Conexion {
         return juegos;
     }
 
+    /**
+     * Funcion para obtener los generos de un juego sabiendo el id
+     * 
+     * @param juegoId id del juego a buscar
+     * @return lista de geneneros del juego
+     */
     private HashSet<GeneroEntity> obtenerGenerosPorJuego(int juegoId) {
-        String sql = "Select * from juego_genero where juego_id ='"+juegoId+"'";
+        String sql = "Select * from juego_genero where juego_id ='" + juegoId + "'";
         HashSet<GeneroEntity> generos = new HashSet<>();
         try (PreparedStatement stmt = conectar().prepareStatement(sql)) {
             ResultSet rs = stmt.executeQuery();
@@ -77,8 +84,6 @@ public class JuegoServiceModel extends Conexion {
         return generos;
     }
 
-    
-
     /**
      * Funcion para aniadir un juego a la bbdd
      * 
@@ -89,6 +94,12 @@ public class JuegoServiceModel extends Conexion {
         if (juego == null) {
             return false;
         }
+        HashSet<GeneroEntity> generos = generoServiceModel.obtenerTodosLosGeneros();
+        for (GeneroEntity genero : juego.getGeneros()) {
+            if (!generos.contains(genero)) {
+                generoServiceModel.aniadirGenero(genero);
+            }
+        }
         String sql = "INSERT INTO juegos (nombre, urlImagen, codigo) VALUES (?, ?, ?)";
         String sql2 = "INSERT INTO juego_genero (juego_id, genero_id) VALUES (?, ?)";
         try (PreparedStatement stmt = conectar().prepareStatement(sql)) {
@@ -96,10 +107,10 @@ public class JuegoServiceModel extends Conexion {
             stmt.setString(2, juego.getUrlImangen());
             stmt.setString(3, juego.getCodigo());
             stmt.executeUpdate();
-            PreparedStatement sentencia = conectar().prepareStatement(sql2);
-            ResultSet resultado = stmt.executeQuery();
+            int id = obtenerIdPorNombre(juego.getNombre());
             for (GeneroEntity genero : juego.getGeneros()) {
-                sentencia.setInt(1, resultado.getInt("id"));
+                PreparedStatement sentencia = conectar().prepareStatement(sql2);
+                sentencia.setInt(1, id);
                 sentencia.setInt(2, genero.getId());
                 sentencia.executeUpdate();
             }
@@ -107,10 +118,26 @@ public class JuegoServiceModel extends Conexion {
         } catch (Exception e) {
             e.printStackTrace();
             return false;
-        } finally{
+        } finally {
             cerrar();
         }
 
+    }
+
+    public int obtenerIdPorNombre(String nombre){
+        String sql = "select id from juegos where nombre='" + nombre + "'";
+        try {
+            PreparedStatement sentencia = conectar().prepareStatement(sql);
+            ResultSet resultSet = sentencia.executeQuery();
+            int id = resultSet.getInt("id");
+            sentencia.execute();
+            return id;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            cerrar();
+        }
+        return -1;
     }
 
     /**
@@ -141,7 +168,7 @@ public class JuegoServiceModel extends Conexion {
             return sentencia.execute();
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally{
+        } finally {
             cerrar();
         }
         return false;

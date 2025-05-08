@@ -30,8 +30,8 @@ CREATE TABLE juegos (
 );
 
 INSERT INTO juegos (nombre,urlImagen,codigo) VALUES
-('assassin-s-creed-valhalla', null, 'sgdhbdf'),
-('elden-ring', null, 'avfsfgs');
+('assassin-s-creed-valhalla', 'src/main/resources/images/assassin-s-creed-valhalla.jpg', 'Adfs/4154sfs/cs8v'),
+('elden-ring', 'src/main/resources/images/elden-ring.png', 'acdscs/156dac/acsd');
 
 CREATE TABLE generos (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
