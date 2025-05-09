@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-
 import backend.es.nexphernandez.adict.games.model.GeneroEntity;
 import backend.es.nexphernandez.adict.games.model.JuegoEntity;
 import backend.es.nexphernandez.adict.games.model.abstractas.Conexion;
@@ -172,6 +171,11 @@ public class JuegoServiceModel extends Conexion {
             cerrar();
         }
         return false;
+    }
+
+    public HashSet<JuegoEntity> obtenerTodosLosJuegos(){
+        String sql = "Select * from juegos";
+        return leerSentenciaJuego(sql);
     }
 
 }

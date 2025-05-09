@@ -14,15 +14,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 
-<VBox alignment="CENTER" depthTest="ENABLE" prefHeight="668.0" prefWidth="343.0" spacing="10" stylesheets="@../css/estilo.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="backend.es.nexphernandez.adict.games.controller.PrincipalController">
+<VBox alignment="CENTER" depthTest="ENABLE" prefHeight="668.0" prefWidth="343.0" spacing="10" stylesheets="@../css/estilo.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="backend.es.nexphernandez.adict.games.controller.PrincipalController">
    <HBox translateY="-50.0">
       <children>
          <MenuBar fx:id="barra" maxHeight="32.0" maxWidth="187.0" prefHeight="32.0" prefWidth="162.0">
            <menus>
              <Menu fx:id="idiomaMenu" mnemonicParsing="false" text="Idioma">
                <items>
-                  <MenuItem fx:id="esMenuItem" mnemonicParsing="false" text="es" onAction="#seleccionarIdiomaEspañol"/>
-                  <MenuItem fx:id="enMenuItem" mnemonicParsing="false" text="en" onAction="#seleccionarIdiomaIngles"/>
+                  <MenuItem fx:id="esMenuItem" mnemonicParsing="false" onAction="#seleccionarIdiomaEspañol" text="es" />
+                  <MenuItem fx:id="enMenuItem" mnemonicParsing="false" onAction="#seleccionarIdiomaIngles" text="en" />
                </items>
              </Menu>
              <Menu mnemonicParsing="false" text="genero">
@@ -46,7 +46,7 @@
     <TextField fx:id="searchTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#buscarJuegos" prefHeight="24.0" prefWidth="303.0" promptText="🔍 Search" stylesheets="@../css/estilo.css" translateY="-45.0" />
    <Line endX="91.3641357421875" endY="-3.256763458251953" startX="-197.3358612060547" startY="-1.6568543910980225" stroke="WHITE" strokeLineCap="ROUND" strokeWidth="5.0" translateY="-45.0" />
     
-    <Label fx:id="juegoLabel" styleClass="game-title" text="Elden Ring" translateX="-100.0" translateY="-35.0" />
+    <Label fx:id="juegoLabel" styleClass="game-title" text="Elden Ring" translateX="1.0" translateY="-35.0" />
    <ImageView fx:id="imagenJuego" fitHeight="150.0" fitWidth="291.0" pickOnBounds="true" preserveRatio="true" translateY="-35.0">
       <image>
          <Image url="@../images/elden-ring.png" />
